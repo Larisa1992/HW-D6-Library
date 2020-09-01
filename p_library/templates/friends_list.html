@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block my_h3 %}
+	<h3 class="my-h3">Мои друзья</h3>
+{% endblock %}
+
+{% block content %}
+	<ul class="list-group list-group-item-info">
+		{% for friend in object_list %}
+		<li class="list-group-item">{{ friend.FIO }}, номер телефона: {{ friend.PhoneNumber }}</li>
+		{% endfor %}
+	</ul>
+	<br>
+	<p><a class="btn btn-outline-info my-btn" href="{% url 'friends_books' %}">Просмотреть, у кого мои книги</a></p>
+	<p><a class="btn btn-outline-info my-btn" href="{% url 'friend_create' %}">Добавить друга</a></p>
+{% endblock %}

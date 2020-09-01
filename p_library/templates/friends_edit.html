@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block list_header %}
+<title>Форма создания и редактирования Друзей</title>  
+{% endblock %}
+
+{% block contentall %}
+<form method="post">  
+	{% csrf_token %}
+	{{ form.as_p }}  
+	<input type="submit" value="Сохранить нового друга">
+</form>  
+{% endblock %}

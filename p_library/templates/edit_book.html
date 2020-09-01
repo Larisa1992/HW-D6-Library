@@ -1,0 +1,18 @@
+{% load static %}
+
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+	<meta charset="UTF-8">
+	{% load static %}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+	<title>Редактирование книги</title>  
+</head>  
+<body>  
+<form action="{% url 'book_edit' book.id %}" method="post">  
+	{% csrf_token %}  
+	{{ form.as_p }}  
+	<input type="submit" value="Сохранить">  
+</form>  
+</body>  
+</html>
