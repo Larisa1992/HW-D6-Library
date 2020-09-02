@@ -9,8 +9,7 @@ body {
 }
 
 .a-header
-, .my-h3 
-, table {
+, .my-h3 {
     color: white;
     font-family: 'LibreBaskerville Regular';
 }
