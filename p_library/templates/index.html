@@ -1,14 +1,15 @@
 {% extends 'base.html' %}
 
+{% load static %}
 {% block contentall %}
-<h3 class="my-h3"> Добро пожаловать в {{ title }} <br>
+<h3 class="my-h3 col-12"> Добро пожаловать в {{ title }} <br>
     <small>Тут собрано {{ books|length }} книг из моей личной коллекции.</small>
 </h3>
 
-<table class="table table-bordered table-responsive">
-    <tbody class="table-striped">
+<table class="table table-bordered">
+    <tbody>
     {% for book in books %}
-    <tr class="table-light" bordercolor="red">
+    <tr class="table-light">
         <td>{{ forloop.counter }}</td> <!-- новый столбец по заданию D4.5-->
         <td>{{ book.title }}</td>
         <td>{{ book.ISBN }}</td>
@@ -17,6 +18,7 @@
         <td>{{ book.author.full_name }}</td>
         <td>{{ book.author.country }}</td>
         <td>{{ book.copy_count }}</td>
+        <td>{{ book.cover }}</td>
         <td>
             <form action="/index/book_increment/" method="post" enctype="multipart/form-data">
                 {% csrf_token %} <!-- CSRF-токен для защиты нашего сайта от сторонних атак. -->
