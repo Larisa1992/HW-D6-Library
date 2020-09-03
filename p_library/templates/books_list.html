@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+<!-- {%load staticfiles%} -->
 	<!-- <a class="btn btn-outline-info" href="{% url 'friend_list' %}">Список друзей</a> -->
 	{% block my_h3 %}
 	<h3 class="my-h3">Мои книги</h3>
@@ -8,9 +8,13 @@
 	{% block content %}
 	<ul class="list-group list-group-item-info">
 		{% for book in object_list %}
-		    <li class="list-group-item">
-				<strong>{{ book.title }}</strong>
-				{% if book.friend %}
+		<li class="list-group-item">
+			{% if book.cover %}
+				<img src="{{ MEDIA_URL }}{{ book.cover }}" width="100" height="50" alt="обложка книги"/>
+			{% endif %}
+			
+			<strong>{{ book.title }}</strong>
+			{% if book.friend %}
 					<br /> <p class="font-italic">Книга на руках у друга по имени 
 								<strong>{{ book.friend.FIO }}</strong> </p>
 				{% endif %}
